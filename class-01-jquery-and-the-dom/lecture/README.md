@@ -1,10 +1,8 @@
 #jQuery and the DOM
 
 ## Slides
-- [template-class-01-slides](link)
+- [Code Fellows Kickoff](link)
+- [Agile and MVC](link)
+- [jQuery and the DOM](link)
+- [Git Flow](link)
 
-## Notes & Key Terms
-- 
-
-## Class videos
-- [template-part1](link)
