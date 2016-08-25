@@ -1,8 +1,10 @@
 var articles = [];
 
 function Article (opts) {
+  // DONE
   // TODO: Use the js object passed in to complete this contructor function:
   // Save ALL the properties of `opts` into `this`.
+  
   this.author = opts.author;
   this.category = opts.category;
   this.title = opts.title;
@@ -34,7 +36,7 @@ Article.prototype.toHtml = function() {
   $newArticle.append('<hr>');
 
   // TODO: This cloned article is no longer a template, so we should remove that class...
-
+  $newArticle.removeClass('template');
   return $newArticle;
 };
 
