@@ -1,10 +1,10 @@
-/* TODO: Add some coordinated colors to make the blog more distinguished:
-         Use an accent color for all links, and remove their underline. */
+/* DONE */
 
 body {
   line-height: 1.5;
   font-size: 100%;
   color: #313131;
+  background-color: lightblue;
 }
 
 hr {
