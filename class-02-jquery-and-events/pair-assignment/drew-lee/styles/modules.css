@@ -1,6 +1,8 @@
 /* TODO: Give the site header a nice background color, from your selected color scheme. */
+/* DONE: Drew & Lee */
 
 .site-header {
+  background-color: #F9DBBD;
   padding: .1em;
 }
 
@@ -18,7 +20,13 @@
 }
 
 /* TODO: Style the filters so they look good on small screens:
-    Use the full width, and remove the list bullet. */
+  Remove the list bullet. */
+/* DONE: Drew & Lee */
+
+
+ul {
+  list-style: none;
+}
 
 #filters {
   padding: 0;
