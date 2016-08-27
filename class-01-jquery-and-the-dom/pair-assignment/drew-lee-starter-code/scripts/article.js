@@ -19,11 +19,16 @@ Article.prototype.toHtml = function() {
   // from this particular Article instance. We need to fill in:
   // the author name and url, the article title and body, and the
   // publication date.
-  $newArticle.find('a').html(this.author);
-  $newArticle.attr('href', this.authorUrl);
+  //DONE
+
   $newArticle.find('h1').html(this.title);
+  $newArticle.find('a').html(this.author);
+
+  $newArticle.find('a').attr('href', this.authorUrl);
+
   $newArticle.find('.article-body').html(this.body);
 
+  $newArticle.find('time').html(this.publishedOn);
 
   // Include the publication date as a 'title' attribute to show on hover:
   $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
@@ -37,8 +42,10 @@ Article.prototype.toHtml = function() {
   $newArticle.removeClass('template');
 
 
+  $newArticle.removeClass("template");
+
   return $newArticle;
-}
+};
 
 rawData.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
@@ -46,8 +53,8 @@ rawData.sort(function(a,b) {
 
 rawData.forEach(function(ele) {
   articles.push(new Article(ele));
-})
+});
 
 articles.forEach(function(a){
-  $('#articles').append(a.toHtml())
+  $('#articles').append(a.toHtml());
 });
