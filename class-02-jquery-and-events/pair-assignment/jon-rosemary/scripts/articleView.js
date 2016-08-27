@@ -78,8 +78,12 @@ articleView.handleMainNav = function() {
   //       single .tab-content section that is associated with the clicked .tab element.
   //       So: You need to dynamically build a selector string with the correct ID, based on the
   //       data available to you on the .tab element that was clicked.
-  $('.main-nav').on(/* CODE GOES HERE */);
-
+  $('.main-nav .tab').on('click', function(){
+	  var tab_id = $(this).attr('data-content');
+	  var $selectedTab = $('#'+tab_id);
+	  $('section.tab-content').hide();
+	  $selectedTab.show();
+   });
   $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
 
@@ -91,13 +95,21 @@ articleView.setTeasers = function() {
   //       "Read On" link once it has been clicked. Be sure to prevent the default link-click action!
   //       Ideally, we'd attach this as just 1 event handler on the #articles section, and let it
   //       process any .read-on clicks that happen within child nodes.
+  $('section#articles .read-on').on('click', function(e) {
+	  e.preventDefault();
+	  var readOnLink = $(e.target);
+	  readOnLink.hide();
+	  readOnLink.parent().find('p').show();
+  }
 
-};
+});
 
 // TODO: Call all of the above functions, once we are sure the DOM is ready.
 $(document).ready(function(){
   articleView.populateFilters();	
   articleView.handleAuthorFilter();	 
   articleView.handleCategoryFilter();
+  articleView.handleMainNav();
+  articleView.setTeasers();
 });
 
