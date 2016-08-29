@@ -26,13 +26,18 @@ address {
 =======================================*/
 
 a, a:link, a:active {
-  color: #777;
+  color: blue;
+  text-decoration: none;
 }
 
 a:hover, a:focus {
+  color: lightblue;
+  text-decoration: none;
 }
 
 a:visited {
+  color: rebeccapurple;
+  text-decoration: none;
 }
 
 .fa-home {
