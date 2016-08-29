@@ -16,10 +16,15 @@ hr {
 =======================================*/
 p {
   font-size: 1em;
+  color: blue;
 }
 
 address {
   display: inline-block;
+}
+
+h1 {
+  color: red;
 }
 
 /*LINK STYLES
