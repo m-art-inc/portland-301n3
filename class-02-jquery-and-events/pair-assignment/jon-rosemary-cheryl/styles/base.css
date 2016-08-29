@@ -34,3 +34,13 @@ a:hover, a:focus {
 
 a:visited {
 }
+
+.fa-home {
+  font-size: 28px;
+  color: black;
+}
+
+.fa-heart {
+  font-size: 28px;
+  color: red;
+}

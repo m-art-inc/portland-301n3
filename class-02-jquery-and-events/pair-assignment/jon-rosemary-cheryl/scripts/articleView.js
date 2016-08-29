@@ -100,9 +100,8 @@ articleView.setTeasers = function() {
 	  var readOnLink = $(e.target);
 	  readOnLink.hide();
 	  readOnLink.parent().find('p').show();
-  }
-
-});
+  });
+};  
 
 // TODO: Call all of the above functions, once we are sure the DOM is ready.
 $(document).ready(function(){
@@ -112,4 +111,3 @@ $(document).ready(function(){
   articleView.handleMainNav();
   articleView.setTeasers();
 });
-
