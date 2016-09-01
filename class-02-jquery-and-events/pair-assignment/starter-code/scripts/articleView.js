@@ -32,7 +32,8 @@ articleView.handleAuthorFilter = function() {
       // TODO: If the select box was changed to an option that has a value, we need to hide all the articles,
       //       and then show just the ones that match for the author that was selected.
       //       Use an "attribute selector" to find those articles, and fade them in for the reader.
-
+      var $selectedAuthor = $('article[data-attribute="' + $(this).val() + '"]');  // set date-attribute on article data 
+      $('article').not($selectedAuthor).hide();  // hide all the articles but not the one just selected
     } else {
       // TODO: If the select box was changed to an option that is blank, we should
       //       show all the articles, except the one article we are using as a template.
