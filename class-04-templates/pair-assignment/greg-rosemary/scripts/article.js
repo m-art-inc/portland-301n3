@@ -7,6 +7,7 @@ function Article (opts) {
   this.category = opts.category;
   this.body = opts.body;
   this.publishedOn = opts.publishedOn;
+  //this.data-author = opts.author;
 }
 
 Article.prototype.toHtml = function() {
@@ -17,7 +18,7 @@ Article.prototype.toHtml = function() {
   var compileTemplate = Handlebars.compile(appTemplate);
   
 
-
+ // this.data-author = this.author;
   // DONE: If your template will use properties that aren't on the object yet, add them.
   //   Since your template can't hold any JS logic, we need to execute the logic here.
   //   The result is added to the object as a new property, which can then be referenced by key in the template.
