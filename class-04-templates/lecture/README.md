@@ -1,11 +1,10 @@
 #Templates
 
 ## Slides
-- [template-class-04-slides](link)
+- [Templates](Templates)
+- [Typography](Typography)
 
 ## Notes & Key Terms
 - 
 
-## Class videos
-- [template-part1](link)
 
