@@ -34,14 +34,25 @@ Article.prototype.toHtml = function() {
   return $newArticle;
 };
 
+// Sort data set
 rawData.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
 
+// for each element in rawData array
+// execute function with that element as argument
+// push to the array called articles
+// a neew Article object
+// with element as input
 rawData.forEach(function(ele) {
   articles.push(new Article(ele));
 });
 
+// for each element in articles array
+// execute function with that element as argument
+// select #articles with jquery
+// append the return of the element.toHtml() method
+// which replaces all the key data
 articles.forEach(function(a){
   $('#articles').append(a.toHtml());
 });
