@@ -64,7 +64,5 @@ Article.fetchAll = function() {
       // 4. And then render the index page (perhaps with an articleView method?).
       articleView.initIndexPage();
     });
-
-
   }
 }
