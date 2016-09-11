@@ -1,4 +1,4 @@
-function Article (opts) {
+function Article(opts) {
   this.author = opts.author;
   this.authorUrl = opts.authorUrl;
   this.title = opts.title;
@@ -17,7 +17,7 @@ Article.all = [];
 Article.prototype.toHtml = function() {
   var template = Handlebars.compile($('#article-template').text());
 
-  this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
+  this.daysAgo = parseInt((new Date() - new Date(this.publishedOn)) / 60 / 60 / 24 / 1000);
   this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
   this.body = marked(this.body);
 
@@ -32,7 +32,7 @@ Article.prototype.toHtml = function() {
 // and use it to instantiate all the articles. This code is moved from elsewhere, and
 // encapsulated in a simply-named function for clarity.
 Article.loadAll = function(rawData) {
-  rawData.sort(function(a,b) {
+  rawData.sort(function(a, b) {
     return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
   });
 
@@ -48,24 +48,23 @@ Article.fetchAll = function() {
     // When rawData is already in localStorage,
     // we can load it by calling the .loadAll function,
     // and then render the index page (using the proper method on the articleView object).
-    var data = localStorage.getItem('rawData');
-    Article.loadAll(
-      //TODO: What do we pass in here to the .loadAll function?
-      data
-    );
-    articleView.someFunctionToCall//(); //TODO: Change this fake method call to the correct one that will render the index page.
+    var data = JSON.parse(localStorage.getItem('rawData'));
+    Article.loadAll(data); //TODO: What do we pass in here to the .loadAll function?
+    console.log("first fired");
+    articleView.initIndexPage(); //TODO: Change this fake method call to the correct one that will render the index page.
   } else {
-
+    console.log("second fired");
     // TODO: When we don't already have the rawData, we need to:
     // 1. Retrieve the JSON file from the server with AJAX (which jQuery method is best for this?),
-    $.getJSON('data/hackerIpsum.json', function(rawData){
-    // 2. Store the resulting JSON data with the .loadAll method,
-    
-    // 3. Cache it in localStorage so we can skip the server call next time,
-
-    // 4. And then render the index page (perhaps with an articleView method?).
+    $.getJSON('data/hackerIpsum.json', function(data) {
+      // 2. Store the resulting JSON data with the .loadAll method,
+      Article.loadAll(data);
+      // 3. Cache it in localStorage so we can skip the server call next time,
+      localStorage.setItem('rawData', JSON.stringify(data));
+      // 4. And then render the index page (perhaps with an articleView method?).
+      articleView.initIndexPage();
     });
-    
+
 
   }
 }
